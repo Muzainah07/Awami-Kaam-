@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { WorkerProfile, LanguageCode } from '../../types';
-import { api, SKILL_DEFINITIONS } from '../../services/api';
+import { api, SKILL_DEFINITIONS, KARACHI_AREAS } from '../../services/api';
 import { Card } from '../ui/Card';
 import { Avatar } from '../ui/Avatar';
 import { Chip } from '../ui/Chip';
@@ -13,6 +13,7 @@ import {
   ArrowLeftRight,
   ShieldCheck,
   AlertCircle,
+  MapPin,
 } from 'lucide-react';
 
 interface WorkerProfileTabProps {
@@ -28,6 +29,21 @@ export const WorkerProfileTab: React.FC<WorkerProfileTabProps> = ({
 }) => {
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode>(worker.language_code || 'ur');
   const [voiceSpeed, setVoiceSpeed] = useState<'normal' | 'slow' | 'fast'>('normal');
+  const [currentArea, setCurrentArea] = useState(worker.location_area || 'Liaquatabad');
+  const [savingLocation, setSavingLocation] = useState(false);
+
+  const handleUpdateLocation = async (area: string) => {
+    setCurrentArea(area);
+    setSavingLocation(true);
+    try {
+      const updated = { ...worker, location_area: area };
+      await api.updateWorkerProfile(updated);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setSavingLocation(false);
+    }
+  };
 
   const languages: { code: LanguageCode; label: string; native: string }[] = [
     { code: 'ur', label: 'Urdu', native: 'اردو' },
@@ -55,7 +71,7 @@ export const WorkerProfileTab: React.FC<WorkerProfileTabProps> = ({
           {worker.name}
         </h2>
         <p className="text-sm font-bold text-[#0B6B3A] mt-0.5">
-          {skillDef.labelEn} • {worker.location_area}, Karachi
+          {skillDef.labelEn} • {currentArea}, Karachi
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-3">
@@ -65,6 +81,30 @@ export const WorkerProfileTab: React.FC<WorkerProfileTabProps> = ({
           <span className="px-3 py-1 rounded-full bg-gray-100 text-[#6B7A72] text-xs font-semibold">
             {worker.experience_years} سال تجربہ
           </span>
+        </div>
+      </Card>
+
+      {/* 2. Custom Work Location Area Selection (Wherever worker wants to work) */}
+      <Card className="space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#6B7A72] uppercase tracking-wider">
+            <MapPin className="w-4 h-4 text-[#0B6B3A]" />
+            <span>کام کا علاقہ منتخب کریں (My Work Location)</span>
+          </div>
+          {savingLocation && <span className="text-[10px] text-[#0B6B3A] font-bold">محفوظ ہو رہا ہے...</span>}
+        </div>
+        <p className="text-xs text-[#6B7A72]">
+          جہاں چاہیں کام کریں — آپ جس علاقے کا انتخاب کریں گے، وہیں کے نوٹیفیکیشنز ملیں گے۔
+        </p>
+        <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto pt-1">
+          {KARACHI_AREAS.map(area => (
+            <Chip
+              key={area}
+              label={area}
+              selected={currentArea === area}
+              onClick={() => handleUpdateLocation(area)}
+            />
+          ))}
         </div>
       </Card>
 
