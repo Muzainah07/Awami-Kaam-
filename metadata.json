@@ -1,0 +1,6 @@
+{
+  "name": "Awami Kam (عوامی کام)",
+  "description": "AI voice-first daily-wage marketplace empowering low-literacy workers and hirers across Pakistan.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
