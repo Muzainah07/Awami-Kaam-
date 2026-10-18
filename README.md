@@ -16,8 +16,8 @@
 3. [Tech Stack](#tech-stack)
 4. [Setup & Installation](#setup--installation)
 5. [AI Methodology & Model/API Usage](#ai-methodology--modelapi-usage)
-6. [Git Commits & Version Control](#git-commits--version-control)
-7. [Screenshots & User Flow](#screenshots--user-flow)
+6. [App Screenshots Gallery](#app-screenshots-gallery)
+7. [Git Commits & Version Control](#git-commits--version-control)
 
 ---
 
@@ -81,30 +81,29 @@ Awami Kam integrates advanced AI models to simplify blue-collar hiring:
 
 ---
 
-## 6. Git Commits & Version Control
+## 6. App Screenshots Gallery
 
-To commit and push your changes as the solo developer, run the following commands in your terminal:
+Here are screenshots of the Awami Kam platform across various views and user flows:
 
-```bash
-# 1. Check status of modified files
-git status
+### Welcome & Onboarding
+![Welcome Screen](docs/Screenshots/welcome.png)
 
-# 2. Stage all changes
-git add .
+### Hirer Portal & Booking Workflow
+| Overview | Step 1 | Step 2 |
+|:---:|:---:|:---:|
+| ![Hirer Overview](docs/Screenshots/hirer.png) | ![Hirer 1](docs/Screenshots/hirer.1.png) | ![Hirer 2](docs/Screenshots/hirer.2.png) |
 
-# 3. Commit changes with a descriptive message
-git commit -m "Initial commit: Awami Kam platform - voice-first daily wage marketplace"
+| Step 3 | Step 4 | Step 5 |
+|:---:|:---:|:---:|
+| ![Hirer 3](docs/Screenshots/hirer.3.png) | ![Hirer 4](docs/Screenshots/hirer.4.png) | ![Hirer 5](docs/Screenshots/hirer.5.png) |
 
-# 4. Push to remote repository (if resolving secret scanner warnings, ensure no raw API keys are committed)
-git push -u origin main
-```
+| Step 6 | Step 7 | Step 8 |
+|:---:|:---:|:---:|
+| ![Hirer 6](docs/Screenshots/hirer.6.png) | ![Hirer 7](docs/Screenshots/hirer.7.png) | ![Hirer 8](docs/Screenshots/hirer.8.png) |
+
+### Worker Portal & Live Radar
+| Overview | Radar / Active | Job Match | Completion |
+|:---:|:---:|:---:|:---:|
+| ![Worker Overview](docs/Screenshots/worker.png) | ![Worker 1](docs/Screenshots/worker.1.png) | ![Worker 2](docs/Screenshots/worker.2.png) | ![Worker 3](docs/Screenshots/worker.3.png) |
 
 ---
-
-## 7. Screenshots & User Flow
-
-- **Welcome & Role Selection**: Choose between *Worker (مزدور)* and *Hirer (مالک)* with quick demo access.
-- **Voice Assistant**: Tap the mic button to speak your job request or status update in Urdu.
-- **Hirer Booking Wizard**: Step-by-step or voice-driven booking with instant AI worker matching.
-- **Worker Radar & Incoming Offer**: Full-screen takeover for incoming job offers with 30-second countdown and voice playback.
-- **Active Job & Completion Screen**: Real-time GPS navigation, call unmasking, and rating/feedback exchange.
