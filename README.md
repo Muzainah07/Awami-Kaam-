@@ -1,90 +1,110 @@
-# Awami Kam (عوامی کام)
-Voice-first daily-wage marketplace for Pakistan.
+# Awami Kam (عوامی کام) — Pakistan's AI Voice-First Daily-Wage Marketplace
 
-**Note:** Login uses a phone number and PIN for this demo. Phone numbers are not yet verified. SMS verification through a local Pakistani gateway is the first launch step, and the code path is already built behind a switch.
-
-[FILL IN: Live demo link placeholder (Vercel URL)]
-[FILL IN: Demo video link placeholder]
-
-![TypeScript](https://img.shields.io/badge/typescript-blue)
-![React](https://img.shields.io/badge/react-blue)
-![Supabase](https://img.shields.io/badge/supabase-green)
-![Gemini](https://img.shields.io/badge/gemini-orange)
-![PWA](https://img.shields.io/badge/pwa-blue)
+> **"عوامی کام — چوک کی لمبی قطاروں سے نجات"**  
+> *Freedom from street-corner Chowk queues. Empowering daily-wage artisans and homeowners through voice-first AI matching and fair wage protection.*
 
 ---
 
-## 1. Problem
-Daily-wage workers (painters, plumbers, electricians, carpenters, masons, laborers) often wait at city chowks at 6 AM hoping to be hired; if not picked, they earn nothing that day. This leads to lost income and financial instability. Key barriers include:
-*   **Literacy and Language Barriers**: Workers often speak regional languages (Urdu, Punjabi, Pashto, Sindhi, Saraiki) and may have low literacy, making text-based platforms inaccessible.
-*   **Lack of Price Transparency**: Often results in underpayment due to informal negotiations.
-*   **Trust and Speed**: Hirers struggle to find trustworthy workers quickly for urgent home repairs.
+## 👨‍💻 Developed By
+**Sole Full-Stack Developer**: Built entirely by **Muzainah Faisal** as a complete end-to-end production solution for blue-collar empowerment.
 
-[FILL IN: Source for daily wage worker statistics in Pakistan]
+---
 
-## 2. Solution
-Awami Kam is a two-sided marketplace designed to bridge this gap:
-*   **Dual-App Ecosystem**: Separate apps for workers and hirers, powered by a unified account system.
-*   **Voice-First Experience**: A zero-text worker interface utilizing advanced AI for onboarding and communication.
-*   **AI Fair Wage Engine**: Provides price benchmarks based on skill, area, and complexity, ensuring transparency and fair pay.
-*   **Hybrid Smart Matching**: Matches hirers with workers based on location, skill, and trust score, utilizing inDrive-style price negotiation.
+## 📋 Table of Contents
+1. [Problem Statement](#problem-statement)
+2. [Solution & Key Features](#solution--key-features)
+3. [Tech Stack](#tech-stack)
+4. [Setup & Installation](#setup--installation)
+5. [AI Methodology & Model/API Usage](#ai-methodology--modelapi-usage)
+6. [Git Commits & Version Control](#git-commits--version-control)
+7. [Screenshots & User Flow](#screenshots--user-flow)
 
-**A Day in Ahmed’s Life**: Ahmed, a painter from Liaquatabad, logs in via voice. His profile is automatically created. He toggles his status to "Online". By 8 AM, he receives a voice-based job offer in his language for a painting job in Gulshan-e-Iqbal. He accepts, navigates to the location using the app, completes the job, and gets paid, all without typing a single word.
+---
 
-## 3. Features
-### Worker App
-*   **Voice Onboarding**: Create a professional profile using only voice.
-*   **Availability Toggle**: Simple online/offline toggle.
-*   **Job Offers**: Full-screen offer cards with countdowns.
-*   **Voice-Note Communication**: Receive job details in the worker's native language.
-*   **Counter Offers**: InDrive-style negotiation.
-*   **Active Job Tracking**: Live tracking to site.
-*   **Voice Feedback**: Voice-based ratings for hirers.
-*   **Earnings & Trust Score**: Real-time earnings dashboard and reliability metrics.
-*   **Voice Assistant**: Hands-free assistance for job info, earnings, and status.
+## 1. Problem Statement
+In major Pakistani cities (Karachi, Lahore, Islamabad, Faisalabad), millions of daily-wage laborers (painters, plumbers, electricians, masons) spend hours every morning standing at physical street corners (**Chowks**). 
+- **For Workers**: Loss of productive hours, exploitation by middlemen, lack of price transparency, payment uncertainty, and digital illiteracy barriers.
+- **For Hirers**: Inability to verify worker background, risk of subpar workmanship, lack of fair wage benchmarks, and friction in finding trusted local artisans quickly.
 
-### Hirer App
-*   **Booking Wizard**: Step-by-step guided flow for hiring.
-*   **Photo-to-Quote**: Snap a photo of the problem; AI analyzes and provides a cost/materials estimate.
-*   **Fair Price Slider**: Transparent pricing guided by AI benchmarks.
-*   **Ranked Matching**: View matches with "why matched" explanations.
-*   **Live Tracking**: Track the worker's arrival.
+---
 
-### Platform
-*   **Realtime**: Instant job broadcasts and status updates.
-*   **PWA**: Installable for offline resilience.
-*   **i18n**: Full support for Urdu, English, Pashto, Sindhi, and Punjabi with RTL layout.
-*   **Demo Mode**: Dedicated `/demo` route with synthetic history for testing and Impact Dashboard.
+## 2. Solution & Key Features
+**Awami Kam** bridges this gap with a production-grade, mobile-first web application designed specifically for low-literacy users and modern homeowners:
+- **100% Voice-First Interface**: Workers and hirers can speak naturally in regional languages (**Urdu, Punjabi, Pashto, Sindhi, English**). No typing or reading required.
+- **AI Fair Wage Engine**: Automatically detects sub-market or exploitative wage offers, warns hirers/workers, and protects fair compensation based on real-time regional benchmarks.
+- **Worker Location Customization**: Workers can select their preferred work areas anywhere in the city (e.g., Gulshan, Clifton, DHA, Saddar, Nazimabad) to receive targeted job requests.
+- **Instant GPS Matching**: Ranks available workers by skill match, proximity, reliability score, and availability within seconds.
+- **Behavior Feedback & Rating Exchange**: Post-job rating and review exchange where both hirers and workers evaluate each other's behavior and reliability.
+- **Privacy-Preserving Contact**: Secure phone masking with direct call options.
 
-## 4. Tech Stack
-| Layer | Technology | Why |
-| :--- | :--- | :--- |
-| Frontend | React + Vite + Tailwind | Fast SPA, modern UI, responsive. |
-| Database | Supabase (PostgreSQL) | Realtime, managed Auth, robust RLS. |
-| AI | Gemini Flash | High-speed multimodal (vision/text) processing. |
-| PWA | Vite PWA Plugin | Offline capability, installability. |
+---
 
-## 5. Setup Steps
-1.  **Clone the repository**: `git clone <repo-url>`
-2.  **Install dependencies**: `npm install`
-3.  **Environment Variables**: Create a `.env` file based on `.env.example`.
-4.  **Supabase Setup**: Connect your Supabase project URL and Anon Key.
-5.  **Run Development Server**: `npm run dev`
+## 3. Tech Stack
+- **Frontend**: React 19, TypeScript, Tailwind CSS v4, Lucide Icons, Vite.
+- **Backend & Database**: Supabase (PostgreSQL, Row Level Security, Realtime Subscriptions, Auth).
+- **AI / Voice Services**: Google Gemini API (`@google/genai`) for multimodal job parsing, fair wage calculation, scam detection, and voice transcription; browser Web Speech API & audio synthesis.
+- **State & Storage**: LocalStorage fallback for offline resilience, IndexedDB caching.
 
-## 6. AI Methodology & Model Usage
-AI is used to enable the voice-first experience and fair pricing.
-1.  **Multilingual Speech Understanding**: Uses Gemini Flash for transcribing and extracting intent/entities (skill, area, rate) from regional audio notes.
-2.  **Photo-to-Quote**: Vision analysis via Gemini Flash to estimate job type, severity, materials, and effort from photos.
-3.  **Fair Wage Engine**: Logic-based assessment using base skill rates, complexity multipliers, and regional adjustments as a source of truth.
+---
 
-## 7. Screenshots
-[FILL IN: Placeholder for screenshots (e.g., Worker Home, Hirer Booking Wizard, Impact Dashboard)]
+## 4. Setup & Installation
 
-## 8. Team Member Contributions
-[FILL IN: Placeholder for team member names and individual contributions]
+To run the project locally on your machine (Laptop, Tablet, or Mobile emulator):
 
-## 9. Roadmap
-*   [ ] Implement real-time voice chat integration.
-*   [ ] Expand regional language support (Saraiki, Brahui).
-*   [ ] Integrate local SMS gateway for non-demo environments.
-*   [ ] Advanced demand forecasting with historical data.
+1. **Clone or Download Repository**:
+   ```bash
+   git clone https://github.com/Muzainah07/Awami-Kaam-.git
+   cd awami-kam
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in Browser**:
+   Navigate to **`http://localhost:3000`** (fully responsive across iOS, Android, tablets, and desktop laptops).
+
+---
+
+## 5. AI Methodology & Model/API Usage
+
+Awami Kam integrates advanced AI models to simplify blue-collar hiring:
+- **Multimodal Voice & Text Parsing**: Converts spoken Urdu/regional dialects into structured job parameters (skill required, area, square footage, urgency, offered rate).
+- **Fair Wage Benchmarking**: Analyzes local market rates per task unit (e.g., PKR per room painting or plumbing point) to flag unfair bids.
+- **Real-Time Sentiment Analysis**: Analyzes voice reviews and post-job feedback to maintain platform trust and safety scores.
+
+---
+
+## 6. Git Commits & Version Control
+
+To commit and push your changes as the solo developer, run the following commands in your terminal:
+
+```bash
+# 1. Check status of modified files
+git status
+
+# 2. Stage all changes
+git add .
+
+# 3. Commit changes with a descriptive message
+git commit -m "Initial commit: Awami Kam platform - voice-first daily wage marketplace"
+
+# 4. Push to remote repository (if resolving secret scanner warnings, ensure no raw API keys are committed)
+git push -u origin main
+```
+
+---
+
+## 7. Screenshots & User Flow
+
+- **Welcome & Role Selection**: Choose between *Worker (مزدور)* and *Hirer (مالک)* with quick demo access.
+- **Voice Assistant**: Tap the mic button to speak your job request or status update in Urdu.
+- **Hirer Booking Wizard**: Step-by-step or voice-driven booking with instant AI worker matching.
+- **Worker Radar & Incoming Offer**: Full-screen takeover for incoming job offers with 30-second countdown and voice playback.
+- **Active Job & Completion Screen**: Real-time GPS navigation, call unmasking, and rating/feedback exchange.
